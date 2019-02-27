@@ -8,10 +8,10 @@
 class Vec
 {
 public:
-    int i, j, k;
+    double i, j, k;
     Point o;
     
-    Vec(int, int, int, Point);
+    Vec(double, double, double, Point);
     double len();
     
     Vec multiply_constant(double);
@@ -24,6 +24,6 @@ public:
     */
 };
 
-inline int sqr(int n) { return n*n; }
+inline double sqr(double n) { return n*n; }
 
 #endif

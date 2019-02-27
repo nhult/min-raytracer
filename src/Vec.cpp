@@ -1,6 +1,6 @@
 #include "Vec.h"
 
-Vec::Vec(int i, int j, int k, Point o) : i{i}, j{j}, k{k}, o{o} { }
+Vec::Vec(double i, double j, double k, Point o) : i{i}, j{j}, k{k}, o{o} { }
 
 double Vec::len()
 {

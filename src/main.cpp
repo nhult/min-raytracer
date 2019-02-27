@@ -18,19 +18,19 @@ int main() {
     Color COLOR_BLACK { 0, 0, 0 };
     Color COLOR_WHITE { 255, 255, 255 };
     
-    Sphere sphere { 50, Point(600, 0, 0) };
-    Vec sphere_vec { 600, 0, 0, camera_p };
+    Sphere sphere { 50, Point(400, 0, 0) };
+    Vec sphere_vec { 400, 0, 0, camera_p };
 
     for (int zp = 0 - (plane.h / 2); zp < (0 + (plane.h / 2)); zp++) {
         for (int yp = 0 + (plane.w / 2); yp > (0 - (plane.w / 2)); yp--) {
 
             // Shoot a ray through each pixel of the plane
-            Vec ray_vec { 200, yp, zp, camera_p };
-            Vec ray_dir = ray_vec.normal();
+            Vec ray_vec { (double)200, (double)yp, (double)zp, camera_p };
+            Vec ray_dir = ray_vec.normal(); // Unit vector of the ray
 
             // Check if the ray intersects with anything
             double t = ray_dir.dot(sphere_vec);
-            Vec p = /* camera_p + */ ray_dir.multiply_constant(t);
+            Vec p = ray_dir.multiply_constant(t);
             Vec y { sphere.pos.x - p.i, sphere.pos.y - p.j, sphere.pos.z - p.k, sphere.pos };
 
             // Case 1: Distance between the sphere's center and the closest point of the ray is larger than the sphere's radius. No intersection.
